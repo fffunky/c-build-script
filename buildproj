@@ -1,0 +1,30 @@
+#!/bin/bash
+
+argc=$#;
+
+if [ $argc -lt 1 ]; then
+    read -p "Project name: " projname
+elif [ $argc -eq 1 ]; then
+    projname=$1;
+else
+    echo "too many arguments."
+    exit 1
+fi
+
+# create project directory
+mkdir "$projname" &>/dev/null
+mkdir "$projname/src" &>/dev/null
+mkdir "$projname/build" &>/dev/null
+
+# main C file
+touch "$projname/src/$projname.c"
+
+# create makefile
+touch "$projname/makefile"
+# add "TARGET_EXEC := $projname and contents of template_makefile
+echo -e "$(printf "TARGET_EXEC := %s" $projname)\n\n$(<./template_makefile)" | tee -a > "$projname/makefile"
+
+# add logger
+cp -av log "$projname/src/log" &>/dev/null
+
+
