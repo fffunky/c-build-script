@@ -1,6 +1,6 @@
 # C Build Script
 
-running the executable `./buildproj` will create a directory containing the project template. Thisincludes a 'log' module I created for C projects and a standard catch-all makefile.
+running the executable `./buildproj` will create a directory containing the project template. This includes a 'log' module I created for C projects and a standard catch-all makefile.
 
 Passing in no arguments you will be prompted to enter a project name. Alternatively, you can pass an argument as the project name.
 

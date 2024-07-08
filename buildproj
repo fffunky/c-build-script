@@ -1,10 +1,10 @@
 #!/bin/bash
 
-argc=$#;
 
-if [ $argc -lt 1 ]; then
+
+if [ $# -lt 1 ]; then
     read -p "Project name: " projname
-elif [ $argc -eq 1 ]; then
+elif [ $# -eq 1 ]; then
     projname=$1;
 else
     echo "too many arguments."
