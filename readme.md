@@ -15,3 +15,5 @@ hello
             - log.h
     - makefile
 ```
+
+Passing in a second argument will specify what folder to move the file to.

@@ -4,7 +4,7 @@
 
 if [ $# -lt 1 ]; then
     read -p "Project name: " projname
-elif [ $# -eq 1 ]; then
+elif [[ $# -eq 1 || $# -eq 2 ]]; then
     projname=$1;
 else
     echo "too many arguments."
@@ -26,5 +26,9 @@ echo -e "$(printf "TARGET_EXEC := %s" $projname)\n\n$(<./template_makefile)" | t
 
 # add logger
 cp -av log "$projname/src/log" &>/dev/null
+
+if [ $# -eq 2 ]; then
+    mv "$projname" "$2"
+fi
 
 
